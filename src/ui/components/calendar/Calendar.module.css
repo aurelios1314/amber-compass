@@ -1,0 +1,147 @@
+/* ═══════════════════════════════
+   Nav
+   ═══════════════════════════════ */
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.title {
+  font-family: var(--serif);
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.actions { display: flex; align-items: center; gap: 2px; }
+
+.navBtn {
+  display: flex; align-items: center; justify-content: center;
+  width: 28px; height: 28px; border-radius: var(--r);
+  color: var(--ink-3);
+  transition: color .12s, background .12s;
+}
+.navBtn:hover { color: var(--ink); background: var(--sand); }
+
+.todayBtn {
+  padding: 0 10px; height: 26px; border-radius: var(--r);
+  font-size: 0.75rem; font-weight: 500;
+  color: var(--ink-2); border: 1px solid var(--line);
+  transition: all .12s;
+}
+.todayBtn:hover { color: var(--cin); border-color: var(--cin); background: var(--cin-bg); }
+
+/* ═══════════════════════════════
+   Grid
+   ═══════════════════════════════ */
+.gridWrap { display: flex; flex-direction: column; flex: 1; }
+
+.wkRow {
+  display: grid; grid-template-columns: repeat(7,1fr);
+  margin-bottom: 2px;
+}
+
+.wkLabel {
+  text-align: center; font-size: 0.6875rem; font-weight: 500;
+  color: var(--ink-3); padding: 2px 0 4px; letter-spacing: .04em;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(7,1fr);
+  grid-template-rows: repeat(6,1fr);
+  gap: 2px;
+  flex: 1;
+}
+
+/* ═══════════════════════════════
+   Cell – base
+   ═══════════════════════════════ */
+.cell {
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 4px 2px 3px;
+  border-radius: var(--r);
+  min-height: 52px;
+  border: 1.5px solid transparent;
+  cursor: pointer;
+  transition: background .1s;
+  position: relative;
+  gap: 1px;
+}
+
+.cur {
+  background: var(--sand);
+}
+
+.out {
+  opacity: .25;
+  cursor: default;
+  pointer-events: none;
+}
+
+.cur.cell:hover:not(.sel) { background: var(--sand-dark); }
+
+.cell:focus-visible { outline: 2px solid var(--cin); outline-offset: -2px; }
+
+/* ═══════════════════════════════
+   Selected
+   ═══════════════════════════════ */
+.sel {
+  background: var(--cin-bg);
+  border-color: var(--line);
+  box-shadow: var(--shadow-sm);
+}
+.sel .gNum { font-weight: 600; color: var(--ink); }
+.sel .lTxt { color: var(--ink-2); }
+
+/* ═══════════════════════════════
+   Today
+   ═══════════════════════════════ */
+.todayDot {
+  width: 4px; height: 4px;
+  border-radius: 50%;
+  background: var(--cin);
+  position: absolute;
+  bottom: 3px;
+}
+
+/* ═══════════════════════════════
+   Typography
+   ═══════════════════════════════ */
+.gNum {
+  font-family: var(--serif);
+  font-size: 0.9375rem;
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1.2;
+}
+
+.wknd:not(.sel) .gNum { color: var(--wknd); }
+
+.lTxt {
+  font-size: 0.6875rem;
+  color: var(--ink-3);
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.special { color: var(--cin); font-weight: 500; }
+
+/* ═══════════════════════════════
+   Mobile
+   ═══════════════════════════════ */
+@media (max-width: 640px) {
+  .grid { gap: 1px; }
+  .cell { min-height: 44px; padding: 3px 1px 2px; }
+  .gNum { font-size: 0.875rem; }
+  .lTxt { font-size: 0.625rem; }
+  .title { font-size: 0.9375rem; }
+  .navBtn { width: 32px; height: 32px; }
+  .todayBtn { height: 30px; }
+}

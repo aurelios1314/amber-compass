@@ -1,0 +1,756 @@
+/* ── Standard Workspace Skeleton (Shared with Calendar) ── */
+.stage {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  padding: var(--ws-outer-gap);
+  height: 100%;
+  min-height: 0;
+  background: var(--bg);
+}
+
+.panel {
+  display: flex;
+  width: 100%;
+  max-width: var(--ws-max-w);
+  background: var(--surface);
+  border-radius: var(--r-lg);
+  border: 1px solid var(--line);
+  overflow: hidden;
+  align-items: stretch;
+  height: 100%;
+  box-shadow: var(--shadow);
+}
+
+.left {
+  flex: var(--ws-left-flex);
+  min-width: 0;
+  padding: 18px 24px;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid var(--line);
+  background: var(--surface);
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: thin;
+}
+
+.right {
+  flex: var(--ws-right-flex);
+  min-width: 500px; /* Supporting panel rhythm */
+  background: var(--surface);
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
+/* ── Content Composition ── */
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-width: 1000px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* ── Design System: Refined Five Elements ── */
+:root {
+  --wx-mu: #54725d;    /* 木: 黛绿 */
+  --wx-huo: #a35a4d;   /* 火: 朱红 */
+  --wx-tu: #8a7860;    /* 土: 赭石 */
+  --wx-jin: #b09164;   /* 金: 琥珀 */
+  --wx-shui: #566c8a;  /* 水: 玄蓝 */
+  
+}
+
+/* Empty State: Waiting Structure */
+.emptyState {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 440px;
+  padding: 40px 0;
+  position: relative;
+}
+
+.emptyStructure {
+  width: min(560px, 72%);
+  height: 260px;
+  position: relative;
+  opacity: 0.58;
+  pointer-events: none;
+}
+
+.emptyRings {
+  position: absolute;
+  inset: 28px 34% auto auto;
+  width: 132px;
+  height: 132px;
+}
+
+.emptyRingOuter,
+.emptyRingInner {
+  position: absolute;
+  border: 1px solid var(--line-light);
+  border-radius: 50%;
+  inset: 0;
+}
+
+.emptyRingInner {
+  inset: 34px;
+  border-color: var(--line);
+  opacity: 0.42;
+}
+
+.emptyLocator {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--cin);
+  top: 38px;
+  right: 30px;
+  opacity: 0.24;
+}
+
+.emptyDotGrid {
+  position: absolute;
+  left: 18%;
+  top: 70px;
+  display: grid;
+  grid-template-columns: repeat(3, 5px);
+  grid-auto-rows: 5px;
+  gap: 18px;
+}
+
+.emptyDotGrid span {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--cin);
+  opacity: 0.16;
+}
+
+.emptyLines {
+  position: absolute;
+  left: 10%;
+  right: 10%;
+  bottom: 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.emptyLines span {
+  display: block;
+  height: 1px;
+  background: var(--line-light);
+  opacity: 0.66;
+}
+
+.emptyLines span:nth-child(2) {
+  width: 76%;
+}
+
+.emptyLines span:nth-child(3) {
+  width: 52%;
+}
+
+.emptyGuide {
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+.emptyText {
+  color: var(--ink-3);
+  font-size: 0.75rem;
+  font-family: var(--sans);
+  letter-spacing: 0.12em;
+  opacity: 0.72;
+}
+
+/* ── Right Panel: Controls (Birth Info) ── */
+.spInputCard, .spArchiveCard, .spListCard {
+  padding: 16px 16px 12px;
+}
+
+.spCardTitle {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 10px;
+  font-family: var(--sans);
+  letter-spacing: 0.08em;
+  border-bottom: 1px solid var(--line-light);
+  padding-bottom: 6px;
+}
+
+.spInputCard .spCardTitle {
+  font-size: 0.875rem;
+  color: var(--ink);
+  border-bottom-color: var(--line);
+}
+
+.spArchiveCard .spCardTitle,
+.spListCard .spCardTitle {
+  color: var(--ink-3);
+}
+
+.spFormGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.spFormRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.spFormGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.formLabel {
+  font-size: 0.75rem;
+  color: var(--ink-3);
+  font-weight: 500;
+}
+
+.input, .select {
+  padding: 8px 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  font-family: var(--sans);
+  font-size: 0.875rem;
+  color: var(--ink);
+  background: var(--bg);
+  outline: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2212%22%20height%3D%2212%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23999%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpolyline%20points%3D%226%209%2012%2015%2018%209%22%3E%3C%2Fpolyline%3E%3C%2Fsvg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+}
+
+.input { background-image: none; padding-right: 12px; }
+
+.btnAction {
+  width: 100%;
+  background: var(--ink);
+  color: var(--bg);
+  border: none;
+  border-radius: var(--r-md);
+  padding: 10px; /* Tightened from 12px */
+  font-size: 0.9375rem;
+  font-weight: 650;
+  cursor: pointer;
+  letter-spacing: 0.14em;
+  font-family: var(--sans);
+  box-shadow: var(--shadow-sm);
+}
+
+.btnAction:hover {
+  background: var(--ink-2);
+}
+
+.spSwitchArea {
+  padding-top: 16px;
+  border-top: 1px solid var(--line-light);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.switchWrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.75rem;
+  color: var(--ink-2);
+}
+
+/* ── Result Experience ── */
+.resultSection {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  animation: fadeIn 0.6s ease-out;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ── Four Pillars Matrix (Unified Design) ── */
+.chartCard {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  padding: 14px 18px;
+  box-shadow: var(--shadow);
+  position: relative;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.pillarsGrid {
+  display: grid;
+  grid-template-columns: 60px repeat(4, 1fr);
+  gap: 0;
+  align-items: center;
+  width: 100%;
+}
+
+.gridHeader {
+  font-size: 0.6875rem;
+  color: var(--ink-3);
+  font-family: var(--sans);
+  font-weight: 600;
+  text-align: center;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--line-light);
+  letter-spacing: 0.08em;
+  margin-bottom: 0;
+  min-width: 0;
+}
+
+/* Remove stray line in top-left spacer */
+.gridHeader:first-child {
+  border-bottom: none;
+}
+
+.gridRowLabel {
+  font-size: 0.6875rem;
+  color: var(--ink-3);
+  font-weight: 500;
+  padding-right: 12px;
+  text-align: right;
+  border-right: 1px solid var(--line-light);
+  border-bottom: 1px solid var(--line-light);
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  white-space: nowrap;
+}
+
+.gridVal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 6px 0;
+  position: relative;
+  min-width: 0;
+  border-bottom: 1px solid var(--line-light);
+}
+
+/* Last row (NaYin) cleanup */
+.nayinVal, .gridVal:nth-last-child(-n+4), .gridRowLabel:nth-last-child(5) {
+  border-bottom: none;
+}
+
+.tenGodCell {
+  font-size: 0.6875rem;
+  color: var(--ink-3);
+  font-weight: 500;
+  height: 28px;
+}
+
+.ganCell, .zhiCell {
+  font-family: var(--serif);
+  font-size: 2.15rem;
+  font-weight: 500;
+  line-height: 1;
+  padding: 2px 0;
+}
+
+.nayinVal {
+  font-size: 0.6875rem;
+  color: var(--ink-3);
+  text-align: center;
+  padding: 8px 0;
+  border-bottom: none;
+  opacity: var(--muted);
+}
+
+/* Day Master Focus */
+.dmFocus {
+  background: var(--sand);
+}
+
+.dmFocus::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-left: 1px solid var(--line);
+  border-right: 1px solid var(--line);
+  pointer-events: none;
+}
+
+.ganCell.dmFocus {
+  font-weight: 600;
+}
+
+/* Hidden Stems Grid Item */
+.gridHiddenStems {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 3px 0;
+  align-items: center;
+  border-bottom: 1px solid var(--line-light);
+  height: 100%;
+  justify-content: center;
+}
+
+.hsRow {
+  display: flex;
+  gap: 6px;
+  font-size: 0.6875rem;
+  background: var(--surface);
+  padding: 1px 6px;
+  border-radius: var(--r-sm);
+  min-width: 54px;
+  justify-content: space-between;
+  border: 1px solid var(--line-light);
+}
+
+.hsGan { font-weight: 600; }
+.hsGod { color: var(--ink-3); font-size: 0.625rem; }
+
+/* ── Da Yun Section (Compact Grid 4x2) ── */
+.daYunSec {
+  margin-top: 2px;
+}
+
+.daYunHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.daYunTitle {
+  font-family: var(--serif);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--ink);
+  letter-spacing: 0.1em;
+  margin: 0;
+}
+
+.daYunMeta {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.daYunDir, .daYunStartNote {
+  font-size: 0.75rem;
+  color: var(--ink-3);
+  font-family: var(--sans);
+}
+
+.daYunGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 10px;
+  row-gap: 8px;
+}
+
+.daYunCard {
+  background: var(--surface);
+  border: 1px solid var(--line-light);
+  border-radius: var(--r-md);
+  padding: 8px 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  transition: all 0.2s;
+  position: relative;
+  min-height: 58px;
+}
+
+.daYunActive {
+  border-color: var(--cin);
+  background: var(--cin-fill);
+  box-shadow: var(--shadow-sm);
+}
+
+.daYunAge {
+  font-size: 0.625rem;
+  font-weight: 700;
+  color: var(--ink-3);
+}
+
+.daYunGanzhi {
+  font-family: var(--serif);
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.daYunYear {
+  font-size: 0.625rem;
+  color: var(--ink-3);
+  opacity: 0.8;
+}
+
+.currBadge {
+  position: absolute;
+  top: -6px;
+  right: -4px;
+  background: var(--cin);
+  color: var(--surface);
+  font-size: 8px;
+  padding: 0px 4px;
+  border-radius: var(--r-sm);
+}
+
+/* ── Archive & Save ── */
+.spRightContent {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 100%;
+  gap: 0;
+}
+
+.spInputSection {
+  border-right: 1px solid var(--line-light);
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+}
+
+.spArchiveSection {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--surface-dim);
+}
+
+.spInputCard {
+  padding: 20px 22px 16px;
+}
+
+.spArchiveCard {
+  padding: 20px 22px 12px;
+}
+
+.textarea {
+  padding: 6px 10px;
+  border: 1px solid var(--line-light);
+  border-radius: var(--r-md);
+  font-family: var(--sans);
+  font-size: 0.8125rem;
+  color: var(--ink);
+  background: var(--sand);
+  outline: none;
+  resize: none;
+  line-height: 1.4;
+}
+
+.btnSave {
+  width: 100%;
+  background: var(--surface);
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  padding: 6px;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  cursor: pointer;
+  letter-spacing: 0.1em;
+  font-family: var(--sans);
+  transition: all 0.2s;
+  margin-top: 2px;
+}
+
+.btnSave:hover {
+  background: var(--sand-dark);
+  border-color: var(--line-dark);
+}
+
+.btnSave:disabled {
+  cursor: default;
+  opacity: var(--disabled);
+  background: var(--sand);
+}
+
+/* ── Saved Charts List ── */
+.spListCard {
+  padding: 0 16px 16px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.savedListScroll {
+  overflow-y: auto;
+  flex: 1;
+  scrollbar-width: thin;
+  padding-right: 4px;
+  max-height: 180px;
+}
+
+.listEmpty {
+  font-size: 0.75rem;
+  color: var(--ink-3);
+  text-align: left;
+  padding: 2px 0 0;
+  opacity: 0.55;
+}
+
+.savedItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 7px 0;
+  border-bottom: 1px solid var(--line-light);
+  gap: 12px;
+}
+
+.savedItem:last-child {
+  border-bottom: none;
+}
+
+.siMain {
+  flex: 1;
+  min-width: 0;
+}
+
+.siHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 2px;
+}
+
+.siName {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--ink-2);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.siTag {
+  font-size: 10px;
+  background: var(--sand);
+  color: var(--ink-3);
+  padding: 0 4px;
+  border-radius: var(--r-sm);
+  white-space: nowrap;
+  border: 1px solid var(--line-light);
+}
+
+.siMeta {
+  font-size: 11px;
+  color: var(--ink-3);
+  opacity: 0.8;
+}
+
+.siActions {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.siBtnLoad, .siBtnDel {
+  background: transparent;
+  border: none;
+  font-size: 11px;
+  cursor: pointer;
+  padding: 3px 0;
+  font-family: var(--sans);
+  transition: opacity 0.2s;
+}
+
+.siBtnLoad {
+  color: var(--wx-shui);
+  font-weight: 600;
+}
+
+.siBtnDel {
+  color: var(--wx-huo);
+}
+
+.siBtnLoad:hover, .siBtnDel:hover {
+  opacity: 0.7;
+}
+
+/* ── Custom BaziSelect ── */
+.customSelectContainer {
+  position: relative;
+  font-family: var(--sans);
+}
+
+.customSelectTrigger {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 10px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  background: var(--sand);
+  cursor: pointer;
+  font-size: 0.8125rem;
+  color: var(--ink);
+  transition: border-color 0.2s;
+  height: 32px; /* Tightened from 36px */
+}
+
+.customSelectTrigger:hover, .customSelectTrigger.active {
+  border-color: var(--line-dark);
+}
+
+.triggerArrow {
+  font-size: 10px;
+  opacity: 0.4;
+  margin-left: 8px;
+}
+
+.customSelectList {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  width: 100%;
+  max-height: 240px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  overflow-y: auto;
+  z-index: 100;
+  box-shadow: var(--shadow-lg);
+  scrollbar-width: thin;
+}
+
+.customSelectOption {
+  padding: 8px 12px;
+  font-size: 0.8125rem;
+  color: var(--ink);
+  cursor: pointer;
+  transition: background 0.1s;
+}
+
+.customSelectOption:hover {
+  background: var(--sand);
+}
+
+.customSelectOption.selected {
+  background: var(--cin-bg);
+  font-weight: 600;
+  color: var(--ink);
+}

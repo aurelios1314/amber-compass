@@ -1,0 +1,39 @@
+.stage {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  padding: var(--ws-outer-gap);
+  height: 100%;
+  min-height: 0;
+  background: var(--bg);
+}
+
+.panel {
+  display: flex;
+  width: 100%;
+  max-width: var(--ws-max-w);
+  background: var(--surface);
+  border-radius: var(--r-lg);
+  border: 1px solid var(--line);
+  overflow: hidden;
+  align-items: stretch;
+  height: 100%;
+  box-shadow: var(--shadow);
+}
+
+.left {
+  flex: var(--ws-left-flex);
+  min-width: 0;
+  padding: var(--ws-inner-pad);
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid var(--line);
+  overflow-y: auto;
+}
+
+.right {
+  flex: var(--ws-right-flex);
+  min-width: 0;
+  overflow-y: auto;
+  background: var(--surface);
+}

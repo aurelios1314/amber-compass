@@ -1,0 +1,217 @@
+/* ═══════════════════════════════
+   Daily Briefing – wrapper
+   ═══════════════════════════════ */
+.brief {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* ═══════════════════════════════
+   Hero – 今日概览
+   ═══════════════════════════════ */
+.hero {
+  display: flex;
+  gap: 14px;
+  padding: 16px 20px 14px;
+  border-bottom: 1px solid var(--line);
+  align-items: flex-start;
+}
+
+.heroLeft { flex-shrink: 0; }
+
+.heroDay {
+  font-family: var(--serif);
+  font-size: 2.75rem;
+  font-weight: 300;
+  line-height: .85;
+  color: var(--ink);
+  letter-spacing: -.03em;
+}
+
+.heroRight {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding-top: 2px;
+  min-width: 0;
+}
+
+.heroGreg {
+  font-size: 0.8125rem;
+  color: var(--ink-2);
+}
+
+.heroLunar {
+  font-family: var(--serif);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.heroOccasion {
+  margin-left: 8px;
+  font-size: 0.75rem;
+  color: var(--cin);
+  font-weight: 500;
+}
+
+.heroSummary {
+  font-size: 0.8125rem;
+  color: var(--ink-3);
+  margin-top: 3px;
+  line-height: 1.5;
+}
+
+/* ═══════════════════════════════
+   Section scaffolding
+   ═══════════════════════════════ */
+.section {
+  padding: 10px 20px;
+  border-bottom: 1px solid var(--line-light);
+}
+
+.sectionTitle {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  color: var(--ink-3);
+  letter-spacing: .1em;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+
+/* ═══════════════════════════════
+   今日宜忌
+   ═══════════════════════════════ */
+.yiji {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.yijiBlock {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.yijiLabel {
+  font-family: var(--serif);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--jade);
+  width: 24px;
+  flex-shrink: 0;
+  padding-top: 4px;
+}
+.yijiLabelJi { color: var(--cin); }
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  flex: 1;
+}
+
+.chip {
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 3px 8px;
+  border-radius: var(--r);
+  line-height: 1.4;
+}
+
+.chipYi { background: var(--jade-fill); color: var(--jade); }
+.chipJi { background: var(--cin-fill); color: var(--cin); }
+.chipNone { font-size: 0.8125rem; color: var(--ink-4); }
+
+/* ═══════════════════════════════
+   今日格局 – 2×2 grid
+   ═══════════════════════════════ */
+.grid4 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  overflow: hidden;
+}
+
+.kv {
+  padding: 7px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  background: var(--sand);
+}
+
+.kv:nth-child(odd) { border-right: 1px solid var(--line-light); }
+.kv:nth-child(-n+2) { border-bottom: 1px solid var(--line-light); }
+
+.k {
+  font-size: 0.625rem;
+  font-weight: 500;
+  color: var(--ink-3);
+  letter-spacing: .06em;
+}
+
+.v {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+/* ═══════════════════════════════
+   吉凶神煞
+   ═══════════════════════════════ */
+.gods {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.godRow {
+  display: flex;
+  gap: 8px;
+  align-items: baseline;
+}
+
+.godLabel {
+  font-size: 0.6875rem;
+  font-weight: 500;
+  color: var(--jade);
+  background: var(--jade-bg);
+  padding: 1px 5px;
+  border-radius: var(--r-sm);
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.godLabelBad { color: var(--cin); background: var(--cin-bg); }
+
+.godVal {
+  font-size: 0.8125rem;
+  color: var(--ink-2);
+  line-height: 1.5;
+}
+
+/* ═══════════════════════════════
+   数据说明
+   ═══════════════════════════════ */
+.foot {
+  margin-top: auto;
+  padding: 10px 20px;
+  font-size: 0.75rem;
+  color: var(--ink-4);
+  text-align: center;
+}
+
+/* ═══════════════════════════════
+   Mobile
+   ═══════════════════════════════ */
+@media (max-width: 640px) {
+  .hero { padding: 14px 16px 12px; gap: 10px; }
+  .heroDay { font-size: 2.25rem; }
+  .section { padding: 10px 16px; }
+  .foot { padding: 8px 16px; }
+}

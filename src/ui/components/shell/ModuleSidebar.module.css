@@ -1,0 +1,87 @@
+.sidebar {
+  width: 76px;
+  background: var(--surface-dim);
+  border-left: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  padding: 12px 0;
+}
+
+.items {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 0 6px;
+}
+
+/* ── Item base ── */
+.item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 12px 4px 10px;
+  border-radius: var(--r);
+  color: var(--ink-2);
+  transition: color .12s, background .12s;
+  position: relative;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+.item:hover:not(:disabled) {
+  color: var(--ink);
+  background: var(--sand);
+}
+
+/* ── Active state ── */
+.active {
+  color: var(--cin);
+  background: var(--cin-bg);
+}
+
+.active:hover {
+  color: var(--cin);
+  background: var(--cin-bg);
+}
+
+/* Left accent indicator bar */
+.indicator {
+  position: absolute;
+  left: -6px;
+  top: 10px;
+  bottom: 10px;
+  width: 3px;
+  border-radius: 0 var(--r-sm) var(--r-sm) 0;
+  background: var(--cin);
+}
+
+/* ── Preview / coming-soon (clickable but muted) ── */
+.preview {
+  opacity: 0.65;
+}
+
+.preview:hover {
+  opacity: 0.85;
+}
+
+/* ── Icon ── */
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  margin-bottom: 2px;
+}
+
+/* ── Label ── */
+.label {
+  font-size: 0.625rem;
+  font-weight: 500;
+  letter-spacing: .02em;
+  line-height: 1.2;
+  white-space: nowrap;
+}

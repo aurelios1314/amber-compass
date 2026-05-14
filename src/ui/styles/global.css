@@ -1,0 +1,71 @@
+:root {
+  /* ── Colors: Precision Warm Ivory & Parchment ── */
+  --bg:          #FDF8F0;  /* Main Workspace: Ivory */
+  --surface:     #FFFFFF;  /* Primary Surface */
+  --surface-dim: #F5F2EE;  /* Secondary Surface: Oat */
+  --sand:        #F7F1E8;  /* Tile Default: Soft Sand */
+  --sand-dark:   #F1E7DA;  /* Tile Hover: Warm Parchment */
+  
+  --line-light:  #F0EBE4;  /* Faint Linen */
+  --line:        #E6D8C8;  /* Defined Border: Warm Beige-Gray */
+  --line-dark:   #DED2C4;  /* Strong Border: Linen */
+  
+  --ink:         #2C2926;  /* Deep Charcoal */
+  --ink-2:       #5C5650;  /* Muted Brown-Gray */
+  --ink-3:       #8C847C;  /* Warm Editorial Text */
+  --ink-4:       #B0A8A0;
+
+  /* ── Accent States (Warmer Neutral) ── */
+  --cin:          #C8A27C;
+  --cin-bg:       #E9DDCC;  /* Selected/Focused: Rich Parchment */
+  --cin-fill:     #F4ECD8;
+
+  /* ── Semantic: jade/moss (yi) ── */
+  --jade:         #4e7a5e;
+  --jade-bg:      #F2F5F0;
+  --jade-fill:    #E9EEE4;
+
+  /* ── Weekend ── */
+  --wknd:         #a07850;
+
+  /* ── Fonts ── */
+  --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --serif: 'Noto Serif SC', 'Songti SC', Georgia, serif;
+
+  /* ── Radii ── */
+  --r-sm: 4px;
+  --r: 6px;
+  --r-md: 8px;
+  --r-lg: 10px;
+
+  /* ── Shadows ── */
+  --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
+  --shadow: 0 4px 24px rgba(0,0,0,0.02);
+  --shadow-lg: 0 4px 12px rgba(0,0,0,0.08);
+
+  /* ── Interaction State Opacity ── */
+  --disabled: 0.45;
+  --muted: 0.78;
+
+  /* ── Workspace Skeleton ── */
+  --ws-header-h:  38px;
+  --ws-left-flex: 60;
+  --ws-right-flex: 40;
+  --ws-max-w:      1360px;
+  --ws-outer-gap:  8px;
+  --ws-inner-pad:  16px 24px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--sans);
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+button { font-family: inherit; font-size: inherit; border: none; background: none; cursor: pointer; color: inherit; }
+ul, ol { list-style: none; }
+::selection { background: var(--cin-fill); }
